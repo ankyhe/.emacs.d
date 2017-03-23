@@ -22,6 +22,9 @@
 			  counsel
 			  swiper
 			  smartparens
+			  elpy
+			  flycheck
+				evil
 			  ) "Default packages")
 
 (setq package-selected-packages ankyhe/packages)
@@ -71,6 +74,8 @@
 (smex-initialize)
 (global-set-key (kbd "M-x") 'smex)
 
+(elpy-enable)
+
 ;; configure swiper
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
@@ -91,6 +96,9 @@
 (global-set-key (kbd "C-x l") 'counsel-locate)
 (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
 (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
+
+(require 'evil)
+(evil-mode t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
