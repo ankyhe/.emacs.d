@@ -24,7 +24,8 @@
 			  smartparens
 			  elpy
 			  flycheck
-				evil
+			  evil
+			  htmlize
 			  ) "Default packages")
 
 (setq package-selected-packages ankyhe/packages)
@@ -99,6 +100,9 @@
 
 (require 'evil)
 (evil-mode t)
+
+
+(setq org-src-fontify-natively t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
