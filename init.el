@@ -26,6 +26,7 @@
 			  flycheck
 			  evil
 			  htmlize
+			  ox-reveal
 			  ) "Default packages")
 
 (setq package-selected-packages ankyhe/packages)
@@ -103,22 +104,18 @@
 
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/texlive/2016/bin/universal-darwin"))
 
-(eval-after-load "ox-latex"
-
-  ;; update the list of LaTeX classes and associated header (encoding, etc.)
-  ;; and structure
-  '(add-to-list 'org-latex-classes
-                `("beamer"
-                  ,(concat "\\documentclass[presentation]{beamer}\n"
-                           "[DEFAULT-PACKAGES]"
-                           "[PACKAGES]"
-                           "[EXTRA]\n")
-                  ("\\section{%s}" . "\\section*{%s}")
-                  ("\\subsection{%s}" . "\\subsection*{%s}")
-                  ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
+(require 'ox-latex)
+(add-to-list 'org-latex-classes
+             '("beamer"
+               "\\documentclass\[presentation\]\{beamer\}"
+               ("\\section\{%s\}" . "\\section*\{%s\}")
+               ("\\subsection\{%s\}" . "\\subsection*\{%s\}")
+               ("\\subsubsection\{%s\}" . "\\subsubsection*\{%s\}")))
 
 
 (setq org-src-fontify-natively t)
+(require 'ox-reveal)
+(setq org-reveal-root "file:///Users/ankyhe/proj/github/reveal.js")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
